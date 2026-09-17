@@ -1,4 +1,4 @@
-## How to create Ingress
+## Ingress Management
 ### Get Ingress by name
 ```
 kubectl get ingress hello-world
