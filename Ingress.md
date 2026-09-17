@@ -36,6 +36,14 @@ spec:
                   number: 8080
 EOF
 ```
+### Edit Ingress
+```
+$ kubectl edit ingress hello-world
+```
+> After the above command press 'i' to enter in insert mode.
+> 
+> Post edit press `esc` button and then press colon `:` button and to save you need to press 'w' button for write/save and 'q' button for quit.   
+
 ### Enable Minikube addon
 > Why Needed: The ingress manifest only creates routing rules. It does not create the component that receives HTTP trafic. It installs the NGINX Ingress Controller- the actual reverse proxy that reads and enforce your ingress rules
 ```
