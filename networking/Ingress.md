@@ -18,7 +18,7 @@ $ kubectl get ingress hello-world -o yaml
 ```
 $ kubectl apply -f -<<'EOF
 apiVersion: networking.k8s.io/v1
-metadat:
+metadata:
   name: hello
   namespace: default
 spec:
@@ -48,6 +48,22 @@ $ kubectl edit ingress hello-world
 > Why Needed: The ingress manifest only creates routing rules. It does not create the component that receives HTTP trafic. It installs the NGINX Ingress Controller- the actual reverse proxy that reads and enforce your ingress rules
 ```
 $ minikube addons enable ingress
+```
+> K8s supports other ingress controller support apart from NGINX, please refer the link for more details: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/
+>  For your minikube cluster, use the built-in controller choices first:
+```
+$ minikube addons list | grep -E 'ingress|traefik|kong|istio|ambassador'
+```
+> To switch from one ingress controller to anotger you can disable/enable them
+```
+$ minikube addons disable ingress # Removes the old ingress-nginx addon, you can keep multiple if needed
+$ minikube addons enable traefik
+$ kubectl get ingressclass
+```
+> Then you need to change the ingress class name in above ingress manifest file in below mentioned block
+```
+spec:
+  ingressClassName: traefik
 ```
 
 ### Check Minikube addons
