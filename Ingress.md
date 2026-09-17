@@ -1,4 +1,10 @@
 ## Ingress Management
+### Get All Ingress
+```
+kubectl get ingress --all-namespaces
+or
+kubectl get ingress -A
+```
 ### Get Ingress by name
 ```
 kubectl get ingress hello-world
@@ -7,12 +13,7 @@ kubectl get ingress hello-world
 ```
 kubectl get ingress hello-world -o yaml
 ```
-### Get All Ingress in yaml format
-```
-kubectl get ingress --all-namespaces
-or
-kubectl get ingress -A
-```
+
 ### Create Ingress
 ```
 kubectl apply -f -<<'EOF
